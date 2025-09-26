@@ -44,7 +44,11 @@ public class FansMessage extends HttpServlet {
 
 		rd.include(request, response);
 
-		response.getWriter().print("<script>alert('" + message + "')</script>");
+		try {
+			response.getWriter().print("<script>alert('" + message + "')</script>");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
